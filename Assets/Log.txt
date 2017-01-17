@@ -1,0 +1,20 @@
+# Capture Flag:
+### Idea: 
+    Simple 4 player game where the objective is to capture more flags and take them to the respective deliver areas.
+
+### Mechanics:
+    +    Player spawn in one of the 4 corners of the map/screen in which they have a deliver area.
+    +    By default, player are static, with no movement, the only way to move is by pressing the keys to move left or right. When this happens, the player will describe a circumference heading the direction that the key is informing. If no keys are pressed, the player doesn't move. This means that the player cannot move in a straight line.
+    +    The game shall have at least 2 game modes, 1 being everyone vs everyone (4 deliver areas) or by random 2 vs 2 teams with 2 deliver areas.
+    +    Flags shall appear one by one on the map, and in random positions.
+    +    The player that passes over the flag shall be the one carrying it. Then, the player shall go back to his deliver area and leave the flag. Once a flag is delivered, another one will appear.
+    +    Player may have some kind of abilities to steal the flag from a carrier.
+    +    The match can be defined by time or can be defined by a getting a fixed amount of flags.
+    +    The game shall be played via WIFI or bluetooth. In pc, it can be played with controllers.
+    +     Players will have powers.
+    +     Could spawn powerups.
+
+### Extensibility:
+    +    Flags that are collected can be stolen from the areas by other players, therefore, giving the ability to player of taking roles, such as de seeker and the defender. Some limitation shall be applied to defenders such as a stay-out time, to allow other player to steal flags, avoiding stalker behaviour.
+
+
