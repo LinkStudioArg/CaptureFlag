@@ -9,10 +9,11 @@ public class AreaBehaviour : NetworkBehaviour {
 	void Start(){
 		itemSpawner =  FindObjectOfType<ItemSpawner> ();
 	}
+
+    [ServerCallback]
 	void OnTriggerEnter(Collider col){
 		Debug.Log ("Triggered " + col.gameObject.name);
-		if (!isServer)
-			return;
+		
 		if (col.gameObject.tag == "Player") {
 			
 			PlayerBehaviour playerB = col.gameObject.GetComponent<PlayerBehaviour> ();

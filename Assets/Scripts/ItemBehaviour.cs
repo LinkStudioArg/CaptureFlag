@@ -22,10 +22,8 @@ public class ItemBehaviour : NetworkBehaviour {
 			
 	}
 
-	void OnTriggerEnter(Collider col){
-		if (!isServer)
-			return;
-		
+    [ServerCallback]
+	void OnTriggerEnter(Collider col){		
 		if (col.gameObject.tag == "Player" && !hasOwner) {
 			hasOwner = true;
 			owner = col.gameObject;
