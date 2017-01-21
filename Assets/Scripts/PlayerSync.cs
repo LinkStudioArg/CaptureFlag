@@ -67,14 +67,16 @@ public class PlayerSync : NetworkBehaviour {
     {
         if (!isLocalPlayer)
         {
-
-            if (useHistoricalLerp)
+            if (shouldLerp)
             {
-                HistoricalLerp();
-            }
-            else
-            {
-                NormalLerp();
+                if (useHistoricalLerp)
+                {
+                    HistoricalLerp();
+                }
+                else
+                {
+                    NormalLerp();
+                }
             }
         }
     }
@@ -95,7 +97,7 @@ public class PlayerSync : NetworkBehaviour {
                 syncPosList.RemoveAt(0);
             }
 
-            if (syncPosList.Count > 5)
+            if (syncPosList.Count > 10)
             {
                 lerpRate = fasterLerpRate;
             }
@@ -128,11 +130,20 @@ public class PlayerSync : NetworkBehaviour {
     {
         if (isLocalPlayer && (myTransform.position - lastPos).sqrMagnitude > (posThreshold * posThreshold))
         {
-            CmdProvidePositionToServer(myTransform.position);
-            lastPos = myTransform.position;
+            if ((myTransform.position - lastPos).sqrMagnitude < 25f)
+            {
+                shouldLerp = true;
+                CmdProvidePositionToServer(myTransform.position);
+                lastPos = myTransform.position;
+            }
+            else
+            {
+                shouldLerp = false;
+            }
         }
     }
 
+    bool shouldLerp = true;
     [ClientCallback]
     void TransmitRotation()
     {

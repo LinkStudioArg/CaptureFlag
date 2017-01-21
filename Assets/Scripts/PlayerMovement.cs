@@ -30,7 +30,7 @@ public class PlayerMovement : NetworkBehaviour {
 	void InputCheck()
 	{
 		float dir = CrossPlatformInputManager.GetAxis ("Horizontal");
-		Debug.Log (dir);
+
 		if ( dir != 0) {
 			Move (dir);
 		}
